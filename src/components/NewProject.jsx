@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const NewProject = () => {
   const [isAddingProject, setIsAddingProject] = useState(false);
-  return <div>NewProject</div>;
+  return <aside>NewProject</aside>;
 };
 
 export default NewProject;

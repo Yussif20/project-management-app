@@ -4,10 +4,10 @@ import Sidebar from "./components/Sidebar";
 function App() {
   return (
     <>
-      <div className="container flex ">
+      <main className="h-screen flex ">
         <Sidebar />
         <NewProject />
-      </div>
+      </main>
     </>
   );
 }
