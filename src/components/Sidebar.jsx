@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "./Button";
 
 const initialProject = ["project 1", "project 2", "project 3"];
 
@@ -11,9 +12,7 @@ const Sidebar = () => {
         Your Projects
       </h2>
       <div>
-        <button className="px-4 py-2 rounded-md text-xs md:text-base bg-stone-700 text-stone-400 hover:bg-stone-600 hover:text-stone-100">
-          + Add Project
-        </button>
+        <Button>+ Add Project</Button>
       </div>
       <ul className="flex flex-col">
         {projects.map((item) => {
