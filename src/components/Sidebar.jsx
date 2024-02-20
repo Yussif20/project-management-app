@@ -1,22 +1,24 @@
-import { useState } from "react";
 import Button from "./Button";
 
-const initialProject = ["project 1", "project 2", "project 3"];
-
-const Sidebar = () => {
-  const [projects, setProjects] = useState(initialProject);
-
+const Sidebar = ({ onStartAddProject, projects }) => {
   return (
     <aside className="w-1/3 px-8 py-16 bg-stone-900 text-stone-50 rounded-r-xl md:w-72">
       <h2 className="mb-8 uppercase font-bold md:text-xl text-stone-200">
         Your Projects
       </h2>
       <div>
-        <Button>+ Add Project</Button>
+        <Button onClick={onStartAddProject}>+ Add Project</Button>
       </div>
-      <ul className="flex flex-col">
+      <ul className="flex flex-col gap-3 my-4">
         {projects.map((item) => {
-          return <li key={item}>{item}</li>;
+          return (
+            <li
+              className="px-6 py-2 cursor-pointer hover:bg-stone-700 rounded-md"
+              key={item.title}
+            >
+              {item.title}
+            </li>
+          );
         })}
       </ul>
     </aside>

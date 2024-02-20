@@ -5,12 +5,48 @@ import Sidebar from "./components/Sidebar";
 import { useState } from "react";
 
 function App() {
-  const [isAddingProject, setIsAddingProject] = useState(true);
+  const [projectState, setProjectState] = useState({
+    selectedProjectId: undefined,
+    projects: [],
+  });
+
+  const handleStartAddProject = () => {
+    setProjectState((prevState) => {
+      return {
+        ...prevState,
+        selectedProjectId: null,
+      };
+    });
+  };
+  const handleAddProject = (projectData) => {
+    setProjectState((prevState) => {
+      const newProject = {
+        ...projectData,
+        id: Math.random(),
+      };
+      return {
+        ...prevState,
+        selectedProjectId: undefined,
+        projects: [...prevState.projects, newProject],
+      };
+    });
+  };
+  console.log(projectState);
+
+  let content;
+  if (projectState.selectedProjectId === undefined) {
+    content = <EmptyPage onStartAddProject={handleStartAddProject} />;
+  } else if (projectState.selectedProjectId === null) {
+    content = <NewProject onAdd={handleAddProject} />;
+  }
   return (
     <>
       <main className="h-screen flex gap-8 ">
-        <Sidebar />
-        {isAddingProject ? <NewProject /> : <EmptyPage />}
+        <Sidebar
+          onStartAddProject={handleStartAddProject}
+          projects={projectState.projects}
+        />
+        {content}
       </main>
     </>
   );
