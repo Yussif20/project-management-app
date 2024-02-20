@@ -9,11 +9,11 @@ const Sidebar = ({ onStartAddProject, projects }) => {
       <div>
         <Button onClick={onStartAddProject}>+ Add Project</Button>
       </div>
-      <ul className="flex flex-col gap-3 my-4">
+      <ul className=" my-4">
         {projects.map((item) => {
           return (
             <li
-              className="px-6 py-2 cursor-pointer hover:bg-stone-700 rounded-md"
+              className="px-6 py-2 my-2 cursor-pointer hover:bg-stone-700 rounded-md"
               key={item.title}
             >
               {item.title}
