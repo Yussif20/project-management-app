@@ -5,10 +5,10 @@ import Sidebar from "./components/Sidebar";
 import { useState } from "react";
 
 function App() {
-  const [isAddingProject, setIsAddingProject] = useState(false);
+  const [isAddingProject, setIsAddingProject] = useState(true);
   return (
     <>
-      <main className="h-screen flex ">
+      <main className="h-screen flex gap-8 ">
         <Sidebar />
         {isAddingProject ? <NewProject /> : <EmptyPage />}
       </main>
