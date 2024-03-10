@@ -60,11 +60,19 @@ function App() {
     });
   };
 
+  const handleAddTasks = () => {};
+  const handleDeleteTasks = () => {};
+
   const selectedProject = projectState.projects.find(
     (project) => project.id === projectState.selectedProjectId
   );
   let content = (
-    <SelectedProject project={selectedProject} onDelete={handleDeleteProject} />
+    <SelectedProject
+      project={selectedProject}
+      onDelete={handleDeleteProject}
+      onAddTasks={handleAddTasks}
+      onDeleteTasks={handleDeleteTasks}
+    />
   );
 
   if (projectState.selectedProjectId === undefined) {
