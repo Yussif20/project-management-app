@@ -1,11 +1,12 @@
 import { useState } from "react";
 
-const NewTask = () => {
+const NewTask = ({ onAdd }) => {
   const [enteredTask, setEnteredTask] = useState("");
   const handleChange = (e) => {
     setEnteredTask(e.target.value);
   };
-  handleClick = () => {
+  const handleClick = () => {
+    onAdd(enteredTask);
     setEnteredTask("");
   };
   return (
